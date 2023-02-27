@@ -4,6 +4,7 @@ import math
 import time
 import copy
 import json
+import numpy
 import os
 import glob
 from os import listdir
@@ -16,6 +17,7 @@ import PIL.Image
 from IPython.display import clear_output, Image, display, HTML
 import numpy as np
 import scipy.misc
+import imageio
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 
@@ -156,6 +158,6 @@ def get_mask_sizes(init_size, oct_n, oct_s):
 
 
 def load_image(path, h, w):
-    img0 = scipy.misc.imread(path, mode='RGB')
+    img0 = imageio.imread(path, pilmode='RGB')
     img0 = scipy.misc.imresize(img0, (h, w)).astype('float64')
     return img0
