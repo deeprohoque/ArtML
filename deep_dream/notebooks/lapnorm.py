@@ -159,5 +159,6 @@ def get_mask_sizes(init_size, oct_n, oct_s):
 
 def load_image(path, h, w):
     img0 = imageio.imread(path, pilmode='RGB')
-    img0 = scipy.misc.imresize(img0, (h, w)).astype('float64')
+    img0 = np.array(PIL.Image.fromarray(img0).resize(
+        size=(h, w))(img0, (h, w))).astype('float64')
     return img0
